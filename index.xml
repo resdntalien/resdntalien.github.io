@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alien&#39;s Den</title>
-    <link>https://www.souravdey.com/</link>
+    <link>https://resdntalien.github.io/</link>
     <description>Recent content on Alien&#39;s Den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Dec 2019 15:33:14 -0800</lastBuildDate>
     
-	<atom:link href="https://www.souravdey.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://resdntalien.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Best Reads of 2019</title>
-      <link>https://www.souravdey.com/blog/books-2019/</link>
+      <link>https://resdntalien.github.io/blog/books-2019/</link>
       <pubDate>Mon, 30 Dec 2019 15:33:14 -0800</pubDate>
       
-      <guid>https://www.souravdey.com/blog/books-2019/</guid>
+      <guid>https://resdntalien.github.io/blog/books-2019/</guid>
       <description>Here&#39;s a short list of some of the best books I read this year. Plus a short description.
 Exhalation Ted Chiang&#39;s second collection of short stories. Sone of the best sci-fi short stories I’ve read in a looong time. They will really get you thinking about AI, time travel, the nature of reality, and writing as a way of changing your thinking. This is the guy that wrote the short story that became the movie Arrival.</description>
     </item>
     
     <item>
       <title>Nature Meditations</title>
-      <link>https://www.souravdey.com/photos/man-in-nature/</link>
+      <link>https://resdntalien.github.io/photos/man-in-nature/</link>
       <pubDate>Fri, 27 Dec 2019 21:22:25 -0800</pubDate>
       
-      <guid>https://www.souravdey.com/photos/man-in-nature/</guid>
+      <guid>https://resdntalien.github.io/photos/man-in-nature/</guid>
       <description>One of the clear themes in my photography is making humans seems small in comparison to the grandeur of Nature. One composition I keep coming back to is a human meditating on the spectacle unfolding before them. Here&#39;s a few of my favorites of that composition.
 Meditating over the Green River in Canyonlands National Park  Meditating on Dove Lake in Tasmania on a Rainy Day  </description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://www.souravdey.com/about/</link>
+      <link>https://resdntalien.github.io/about/</link>
       <pubDate>Wed, 25 Dec 2019 21:05:24 -0800</pubDate>
       
-      <guid>https://www.souravdey.com/about/</guid>
+      <guid>https://resdntalien.github.io/about/</guid>
       <description>print(&amp;#34;Hello World&amp;#34;) I&#39;m a human that lives in the Bay Area. Professionally, I am the CTO of Manifold, an AI engineering services company. My professional interests include most anything math and computer science related &amp;ndash; especially machine learning, signal processing, dynamical systems, Python development, and data intensive software systems built in the cloud. Beyond that my interests are pretty wide ranging &amp;ndash; but I&#39;m really into travel, photography, hiking, camping, reading, and being a family guy.</description>
     </item>
     
     <item>
       <title>Tasmania Road Trip</title>
-      <link>https://www.souravdey.com/travel/tasmania/</link>
+      <link>https://resdntalien.github.io/travel/tasmania/</link>
       <pubDate>Wed, 25 Apr 2018 20:29:42 -0800</pubDate>
       
-      <guid>https://www.souravdey.com/travel/tasmania/</guid>
+      <guid>https://resdntalien.github.io/travel/tasmania/</guid>
       <description>We recently came back from a 2-week family trip to Australia. We wanted to go to three major places in Australia on our trip there. The usual choices are Sydney, the Red Centre, and the Great Barrier Reef. But we opted to cut out the Reef and go to Tasmania instead. Mainly because it just seemed so much cooler. After going there, I am happy to say we’re so glad that we made that choice.</description>
     </item>
     

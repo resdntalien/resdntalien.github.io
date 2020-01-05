@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Alien&#39;s Den</title>
-    <link>https://www.souravdey.com/categories/</link>
+    <link>https://resdntalien.github.io/categories/</link>
     <description>Recent content in Categories on Alien&#39;s Den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://www.souravdey.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://resdntalien.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

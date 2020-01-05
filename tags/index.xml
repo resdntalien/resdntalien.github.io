@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Alien&#39;s Den</title>
-    <link>https://www.souravdey.com/tags/</link>
+    <link>https://resdntalien.github.io/tags/</link>
     <description>Recent content in Tags on Alien&#39;s Den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 30 Dec 2019 15:33:14 -0800</lastBuildDate>
     
-	<atom:link href="https://www.souravdey.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://resdntalien.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>reading</title>
-      <link>https://www.souravdey.com/tags/reading/</link>
+      <link>https://resdntalien.github.io/tags/reading/</link>
       <pubDate>Mon, 30 Dec 2019 15:33:14 -0800</pubDate>
       
-      <guid>https://www.souravdey.com/tags/reading/</guid>
+      <guid>https://resdntalien.github.io/tags/reading/</guid>
       <description></description>
     </item>
     
     <item>
       <title>travel</title>
-      <link>https://www.souravdey.com/tags/travel/</link>
+      <link>https://resdntalien.github.io/tags/travel/</link>
       <pubDate>Wed, 25 Apr 2018 20:29:42 -0800</pubDate>
       
-      <guid>https://www.souravdey.com/tags/travel/</guid>
+      <guid>https://resdntalien.github.io/tags/travel/</guid>
       <description></description>
     </item>
     
