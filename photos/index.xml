@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Photos on Alien&#39;s Den</title>
+    <link>https://resdntalien.github.io/photos/</link>
+    <description>Recent content in Photos on Alien&#39;s Den</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Dec 2019 21:22:25 -0800</lastBuildDate>
+    
+	<atom:link href="https://resdntalien.github.io/photos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nature Meditations</title>
+      <link>https://resdntalien.github.io/photos/man-in-nature/</link>
+      <pubDate>Fri, 27 Dec 2019 21:22:25 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/photos/man-in-nature/</guid>
+      <description>One of the clear themes in my photography is making humans seems small in comparison to the grandeur of Nature. One composition I keep coming back to is a human meditating on the spectacle unfolding before them. Here&#39;s a few of my favorites of that composition.
+Meditating over the Green River in Canyonlands National Park  Meditating on Dove Lake in Tasmania on a Rainy Day  </description>
+    </item>
+    
+  </channel>
+</rss>
