@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Alien&#39;s Den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Dec 2019 15:33:14 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 21:47:33 -0800</lastBuildDate>
     
 	<atom:link href="https://resdntalien.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hugo</title>
+      <link>https://resdntalien.github.io/tags/hugo/</link>
+      <pubDate>Sun, 05 Jan 2020 21:47:33 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>reading</title>
