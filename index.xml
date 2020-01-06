@@ -49,5 +49,14 @@ Meditating over the Green River in Canyonlands National Park  Meditating on Dove
       <description>We recently came back from a 2-week family trip to Australia. We wanted to go to three major places in Australia on our trip there. The usual choices are Sydney, the Red Centre, and the Great Barrier Reef. But we opted to cut out the Reef and go to Tasmania instead. Mainly because it just seemed so much cooler. After going there, I am happy to say we’re so glad that we made that choice.</description>
     </item>
     
+    <item>
+      <title>Weighted MAPE</title>
+      <link>https://resdntalien.github.io/blog/wmape/</link>
+      <pubDate>Sat, 05 Jan 2013 21:03:51 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/blog/wmape/</guid>
+      <description>Most classical statistical signal processing forecasting techniques — Weiner filtering, Kalman filtering, etc — minimize the MSE. The problem with the MSE is that it is very sensitive to scale. In many situations, we want a scale free error metric. By scale free, I mean a metric that can be used to compare the error for two different forecasts for two different series even if one typically has values between 0 and .</description>
+    </item>
+    
   </channel>
 </rss>
