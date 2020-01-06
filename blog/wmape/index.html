@@ -34,7 +34,7 @@
 <meta itemprop="description" content="Most classical statistical signal processing forecasting techniques — Weiner filtering, Kalman filtering, etc — minimize the MSE. The problem with the MSE is that it is very sensitive to scale. In many situations, we want a scale free error metric. By scale free, I mean a metric that can be used to compare the error for two different forecasts for two different series even if one typically has values between 0 and .">
 <meta itemprop="datePublished" content="2013-01-05T21:03:51-08:00" />
 <meta itemprop="dateModified" content="2013-01-05T21:03:51-08:00" />
-<meta itemprop="wordCount" content="439">
+<meta itemprop="wordCount" content="479">
 <meta itemprop="image" content="https://resdntalien.github.io"/>
 
 
@@ -116,35 +116,38 @@
             
 
             <div class="post-content">
-                <p>Most classical statistical signal processing forecasting techniques — Weiner filtering, Kalman filtering, etc — minimize the MSE. The problem with the MSE is that it is very sensitive to scale.  In many situations, we want a scale free error metric. By scale free, I mean a metric that can be used to compare the error for two different forecasts for two different series even if one typically has values between 0 and .1 and the other has values between 1000 and 10000.  If I just used MSE, I would get small MSEs for the previous and big MSEs for the latter — but the estimator on the latter could be doing better.</p>
+                <p>Most classical statistical signal processing forecasting techniques — Weiner filtering, Kalman filtering, etc — minimize the MSE. The problem with the MSE is that it is very sensitive to scale. In many situations, we want a scale free error metric. By scale free, I mean a metric that can be used to compare the error for two different forecasts for two different series even if one typically has values between 0 and .1 and the other has values between 1000 and 10000. If I just used MSE, I would get small MSEs for the previous and big MSEs for the latter — but the estimator on the latter could be doing better.</p>
 <p>What error metric can we use? There are two choices that alot of sales/inventory modelling people use:</p>
 <ul>
 <li>Mean absolute percentage error (MAPE)</li>
 <li>Weighted MAPE (wMAPE)</li>
 </ul>
 <p>The MAPE is defined as:</p>
-
+<p><span class="math display">\[\mathbf{MAPE} = \frac{1}{N} \sum_{n} \mathrm{APE}[n] = \frac{1}{N} \sum_{n} \frac{|\hat{y}[n] - y[n]|}{|y[n]|}\]</span></p>
+<!-- 
     <img src="/wmape/mape.png"  alt="MAPE"  class="center"  style="border-radius: 8px;"  />
 
-
-<p>There are problems with the MAPE though.  Most prominently, the APE could be very large if the value of the time-series is really small.  And if its zero — then the MAPE blows up to infinity.  This is not “good” behavior for energy forecasting.  In fact, I don’t really care that much about errors made when the consumption is low. I care more about errors made when the consumption is high.  Which brings us to the weighted MAPE, which fixes some of the shortcomings of straight MAPE.</p>
+ -->
+<p>There are problems with the MAPE though. Most prominently, the APE could be very large if the value of the time-series is really small. And if its zero — then the MAPE blows up to infinity. This is not “good” behavior for energy forecasting. In fact, I don’t really care that much about errors made when the consumption is low. I care more about errors made when the consumption is high. Which brings us to the weighted MAPE, which fixes some of the shortcomings of straight MAPE.</p>
 <p>As the name implies it is a weighted version of the mean absolute percentage error (MAPE). Instead of weighting each APE equally by 1/N it weights by a index specific weight:</p>
-
+<p><span class="math display">\[\mathbf{wMAPE} = \sum_{n} w[n] \mathrm{APE}[n]\]</span></p>
+<!-- 
     <img src="/wmape/wmape1.png"  alt="MAPE"  class="center"  style="border-radius: 8px;"  />
 
-
-<p>As typical, we weight the APE by the value of the relative value of the time-series as that point compared to the entire time-series.  This is expressed mathematically as:</p>
-
+ -->
+<p>As typical, we weight the APE by the value of the relative value of the time-series as that point compared to the entire time-series. This is expressed mathematically as:</p>
+<p><span class="math display">\[w[n] = \frac{|y[n]|}{\sum_{n} |y[n]|}\]</span></p>
+<!-- 
     <img src="/wmape/wmape2.png"  alt="MAPE"  class="center"  style="border-radius: 8px;"  />
 
-
-<p>Intuitively, this choice of weight down-weighs errors that are made when the time-series is small.  For example, we could have 50% APE when the time-series is really close to zero — but we don’t really care because the time-serie is so small anyways.  This is especially important if the time-series takes values close to zero.  Without this weighting, the APE there could blow up to something huge and would totally dominate the MAPE.  We care more about the errors made when the time-series is large.  This is what this error metric does.</p>
+ -->
+<p>Intuitively, this choice of weight down-weighs errors that are made when the time-series is small. For example, we could have 50% APE when the time-series is really close to zero — but we don’t really care because the time-serie is so small anyways. This is especially important if the time-series takes values close to zero. Without this weighting, the APE there could blow up to something huge and would totally dominate the MAPE. We care more about the errors made when the time-series is large. This is what this error metric does.</p>
 <p>This expression above can be further simplified because the numerator of w[n] cancels the denominator of the APE[n] giving us the expression we use to compute the wMAPE:</p>
-
+<p><span class="math display">\[\mathbf{MAPE} = \sum_{n} \underbrace{\frac{|y[n]|}{\sum_{n} |y[n]|}}_{w[n]} \cdot \underbrace{\frac{|\hat{y}[n] - y[n]|}{|y[n]|}}_{\mathrm{APE[n]}} = \frac{\sum_{n} |\hat{y}[n] - y[n]| }{\sum_{n} |y[n]|}\]</span> <!-- 
     <img src="/wmape/wmape3.png"  alt="MAPE"  class="center"  style="border-radius: 8px;"  />
 
-
-<p>This is the typical wMAPE expression that you see around the internet.  I find it very confusing without the derivation.  Hopefully this makes more sense to you all as well.</p>
+ --></p>
+<p>This is the typical wMAPE expression that you see around the internet. I find it very confusing without the derivation. Hopefully this makes more sense to you all as well.</p>
 
             </div>
         </article>
@@ -175,6 +178,11 @@
         </div>
     </div>
 </footer>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
             
         </div>
 
