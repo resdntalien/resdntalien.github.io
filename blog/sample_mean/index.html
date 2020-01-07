@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Sourav Dey ">
+<meta name="description" content="I think statistics is taught wrong at most universities. It is taught as if computers were never invented. Now that was fine 100 years ago. Even 20 years ago. But now computation is dirt cheap — and there is a better way to learn statistics — through Monte Carlo simulation. For example, the sample mean is one of the first things you learn in a statistics class. You learn about the standard error of the sample mean and how it scales as \(\sigma/\sqrt{N}\)." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://resdntalien.github.io/blog/sample_mean/" />
+
+
+    <title>
+        
+            Sample Mean Revisited :: Alien&#39;s Den  — random musings
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css">
+
+
+
+
+<meta itemprop="name" content="Sample Mean Revisited">
+<meta itemprop="description" content="I think statistics is taught wrong at most universities. It is taught as if computers were never invented. Now that was fine 100 years ago. Even 20 years ago. But now computation is dirt cheap — and there is a better way to learn statistics — through Monte Carlo simulation. For example, the sample mean is one of the first things you learn in a statistics class. You learn about the standard error of the sample mean and how it scales as \(\sigma/\sqrt{N}\).">
+<meta itemprop="datePublished" content="2012-06-21T21:54:09-08:00" />
+<meta itemprop="dateModified" content="2012-06-21T21:54:09-08:00" />
+<meta itemprop="wordCount" content="477">
+<meta itemprop="image" content="https://resdntalien.github.io"/>
+
+
+
+<meta itemprop="keywords" content="math," /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://resdntalien.github.io"/>
+
+<meta name="twitter:title" content="Sample Mean Revisited"/>
+<meta name="twitter:description" content="I think statistics is taught wrong at most universities. It is taught as if computers were never invented. Now that was fine 100 years ago. Even 20 years ago. But now computation is dirt cheap — and there is a better way to learn statistics — through Monte Carlo simulation. For example, the sample mean is one of the first things you learn in a statistics class. You learn about the standard error of the sample mean and how it scales as \(\sigma/\sqrt{N}\)."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2012-06-21 21:54:09 -0800 -0800" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style="background-color:#7c4dff"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://resdntalien.github.io/about/">About</a></li><li><a href="https://resdntalien.github.io/blog/">Blog</a></li><li><a href="https://resdntalien.github.io/photos/">Photos</a></li><li><a href="https://resdntalien.github.io/travel/">Travel</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://resdntalien.github.io/blog/sample_mean/">Sample Mean Revisited</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>I think statistics is taught wrong at most universities. It is taught as if computers were never invented. Now that was fine 100 years ago. Even 20 years ago. But now computation is dirt cheap — and there is a better way to learn statistics — through Monte Carlo simulation. For example, the sample mean is one of the first things you learn in a statistics class. You learn about the standard error of the sample mean and how it scales as <span class="math inline">\(\sigma/\sqrt{N}\)</span>.</p>
+<p>And you do some algebra and take it at face value. But with Monte Carlo simulation you don’t have to take it at face value. You can simulate sampling, the sample mean, and see what distribution it has. That’s what the following Python code does. [I’m re-posting this about eight years after I wrote this post and I have to apologize for the Python code below. I wrote it, but I cringe now… no snake case, total disregard for PEP8, and using Numpy instead of Pandas. I’ve come so far…]</p>
+<p>It’s very straight forward. I assume that I take <span class="math inline">\(N_s\)</span> independent samples from a zero-mean, unit variance Gaussian distribution. I then compute the sample mean: <span class="math inline">\(\sum x_i/N_s\)</span>.</p>
+<p>I do this 30,000 times for three different <span class="math inline">\(N_s\)</span>: <span class="math inline">\(N_s=2, 4, 16\)</span>.</p>
+<p>The histograms of the sample means are plotted below. As expected, the variance of the sample mean is less when you have more samples. The distribution is narrower around the true mean (zero in this case). The theoretical sampling distribution, with mean zero and standard deviation=standard error=<span class="math inline">\(\sigma/\sqrt{N}\)</span> is plotted as well. Writing this code yourself and seeing the distributions match the theory goes way further than doing any sort of algebraic manipulation to make statistics real in my mind.</p>
+
+    <img src="/sample_mean.png"  alt="Sample Mean"  class="center"  style="border-radius: 8px;"  />
+
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.mlab <span class="im">as</span> mlab</span>
+<span id="cb1-4"><a href="#cb1-4"></a> </span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#=======================================================</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#Parameters</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#=======================================================</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#Population Params</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>mu <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>sig <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a> </span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#Sample Parameters</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>numSamplesVec <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">16</span>]</span>
+<span id="cb1-14"><a href="#cb1-14"></a>colorVec <span class="op">=</span> [<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;green&#39;</span>]</span>
+<span id="cb1-15"><a href="#cb1-15"></a>alphaVec <span class="op">=</span> [<span class="fl">1.0</span>, <span class="fl">.75</span>, <span class="fl">.5</span>]</span>
+<span id="cb1-16"><a href="#cb1-16"></a> </span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co">#Monte Carlo Params</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>Nmc <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a> </span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="co">#=======================================================</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="co">#Monte Carlo Simulation</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="co">#=======================================================</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>plt.close(<span class="st">&#39;all&#39;</span>)</span>
+<span id="cb1-24"><a href="#cb1-24"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">8</span>))</span>
+<span id="cb1-25"><a href="#cb1-25"></a>bins <span class="op">=</span> np.arange(<span class="op">-</span><span class="dv">3</span>,<span class="dv">3</span>, <span class="fl">.05</span>) <span class="co">#&lt;-- histogram bins</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a> </span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="cf">for</span> Ns, col, alp <span class="kw">in</span> <span class="bu">zip</span>(numSamplesVec, colorVec, alphaVec):</span>
+<span id="cb1-28"><a href="#cb1-28"></a> </span>
+<span id="cb1-29"><a href="#cb1-29"></a>    <span class="co">#Initialize vectors for all the parameters of interest</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a>    sampleStd <span class="op">=</span> sig<span class="op">/</span>np.sqrt(Ns)</span>
+<span id="cb1-31"><a href="#cb1-31"></a>    muSample <span class="op">=</span> np.zeros(Nmc)</span>
+<span id="cb1-32"><a href="#cb1-32"></a>    sigSample <span class="op">=</span> np.zeros(Nmc)</span>
+<span id="cb1-33"><a href="#cb1-33"></a>    stdErr <span class="op">=</span> np.zeros(Nmc)</span>
+<span id="cb1-34"><a href="#cb1-34"></a>    tStat <span class="op">=</span> np.zeros(Nmc)</span>
+<span id="cb1-35"><a href="#cb1-35"></a> </span>
+<span id="cb1-36"><a href="#cb1-36"></a>    <span class="co">#Monte Carlo sim of many samples with size Ns</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,Nmc):</span>
+<span id="cb1-38"><a href="#cb1-38"></a>        x <span class="op">=</span> sig<span class="op">*</span>np.random.randn(Ns)<span class="op">+</span>mu</span>
+<span id="cb1-39"><a href="#cb1-39"></a>        muSample[k] <span class="op">=</span> np.mean(x)</span>
+<span id="cb1-40"><a href="#cb1-40"></a>        sigSample[k] <span class="op">=</span> np.std(x)</span>
+<span id="cb1-41"><a href="#cb1-41"></a>        stdErr[k] <span class="op">=</span> sigSample[k]<span class="op">/</span>np.sqrt(Ns)</span>
+<span id="cb1-42"><a href="#cb1-42"></a>        tStat[k] <span class="op">=</span> muSample[k]<span class="op">/</span>stdErr[k] <span class="co">#&lt;-- t-test for 0-mean. Is the mean significantly different 0?</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a> </span>
+<span id="cb1-44"><a href="#cb1-44"></a>    <span class="co">#Histogram and plotting of sample mean</span></span>
+<span id="cb1-45"><a href="#cb1-45"></a>    n,muBins, p <span class="op">=</span> plt.hist(muSample, bins, color<span class="op">=</span>col, alpha<span class="op">=</span>alp )</span>
+<span id="cb1-46"><a href="#cb1-46"></a>    dmu <span class="op">=</span> muBins[<span class="dv">1</span>]<span class="op">-</span>muBins[<span class="dv">0</span>]</span>
+<span id="cb1-47"><a href="#cb1-47"></a>    y <span class="op">=</span> mlab.normpdf(muBins, mu, sampleStd)</span>
+<span id="cb1-48"><a href="#cb1-48"></a>    plt.plot(muBins, dmu<span class="op">*</span>Nmc<span class="op">*</span>y, color<span class="op">=</span>col,linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-49"><a href="#cb1-49"></a> </span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="co">#Finishing up the plot with legend and labels</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>plt.grid(<span class="st">&#39;on&#39;</span>)</span>
+<span id="cb1-52"><a href="#cb1-52"></a>plt.xlabel(<span class="st">&#39;Sample Mean&#39;</span>)</span>
+<span id="cb1-53"><a href="#cb1-53"></a>legendList <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb1-54"><a href="#cb1-54"></a><span class="cf">for</span> Ns <span class="kw">in</span> numSamplesVec:</span>
+<span id="cb1-55"><a href="#cb1-55"></a>    legendList.append(<span class="st">&#39;Ns = &#39;</span> <span class="op">+</span> <span class="bu">str</span>(Ns))</span>
+<span id="cb1-56"><a href="#cb1-56"></a>plt.legend(legendList)</span>
+<span id="cb1-57"><a href="#cb1-57"></a>plt.title(<span class="st">&#39;Population Mean = 0, Population Std = 1&#39;</span>)</span></code></pre></div>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://resdntalien.github.io/tags/math">math</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020
+            
+                <a href="https://resdntalien.github.io">Sourav Dey</a>
+            
+            </span>
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
+
+
+
+    </body>
+</html>

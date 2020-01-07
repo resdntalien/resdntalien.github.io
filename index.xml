@@ -69,5 +69,14 @@ Meditating over the Green River in Canyonlands National Park  Meditating on Dove
       <description>Most classical statistical signal processing forecasting techniques — Weiner filtering, Kalman filtering, etc — minimize the MSE. The problem with the MSE is that it is very sensitive to scale. In many situations, we want a scale free error metric. By scale free, I mean a metric that can be used to compare the error for two different forecasts for two different series even if one typically has values between 0 and .</description>
     </item>
     
+    <item>
+      <title>Sample Mean Revisited</title>
+      <link>https://resdntalien.github.io/blog/sample_mean/</link>
+      <pubDate>Thu, 21 Jun 2012 21:54:09 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/blog/sample_mean/</guid>
+      <description>I think statistics is taught wrong at most universities. It is taught as if computers were never invented. Now that was fine 100 years ago. Even 20 years ago. But now computation is dirt cheap — and there is a better way to learn statistics — through Monte Carlo simulation. For example, the sample mean is one of the first things you learn in a statistics class. You learn about the standard error of the sample mean and how it scales as \(\sigma/\sqrt{N}\).</description>
+    </item>
+    
   </channel>
 </rss>
