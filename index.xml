@@ -70,6 +70,16 @@ Meditating over the Green River in Canyonlands National Park  Meditating on Dove
     </item>
     
     <item>
+      <title>Family Disease Dynamics</title>
+      <link>https://resdntalien.github.io/blog/family_disease/</link>
+      <pubDate>Tue, 07 Oct 2014 21:02:12 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/blog/family_disease/</guid>
+      <description>I wanted to make a plot of the sickness in our lives… and after three hours of Python I have this post to show for it. I clearly have problems (and better ways to spend my time).
+In any case, the first graph here shows me and my wife’s health in 2013. Pretty regular adult health time series — on average about two illnesses a year that we quickly bounced back from.</description>
+    </item>
+    
+    <item>
       <title>Weighted MAPE</title>
       <link>https://resdntalien.github.io/blog/wmape/</link>
       <pubDate>Sat, 05 Jan 2013 21:03:51 -0800</pubDate>
