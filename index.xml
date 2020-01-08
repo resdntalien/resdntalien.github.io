@@ -6,20 +6,10 @@
     <description>Recent content on Alien&#39;s Den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jan 2020 21:09:07 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 21:47:33 -0800</lastBuildDate>
     
 	<atom:link href="https://resdntalien.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Car Seat Placement Analysis</title>
-      <link>https://resdntalien.github.io/blog/car_seat/</link>
-      <pubDate>Tue, 07 Jan 2020 21:09:07 -0800</pubDate>
-      
-      <guid>https://resdntalien.github.io/blog/car_seat/</guid>
-      <description>So during some downtime during paternity leave, I decided to really research where we should put my daughter’s car seat. After two hours of research and a small Monte Carlo simulation, this post is what I have to show for myself.
-The key stat I found in my research is that putting the car seat in the middle can reduce the likelihood of fatality by 43% as compared to putting the car seat on the side [1].</description>
-    </item>
     
     <item>
       <title>Latex Equations in Hugo</title>
@@ -77,6 +67,16 @@ Meditating over the Green River in Canyonlands National Park  Meditating on Dove
       
       <guid>https://resdntalien.github.io/travel/ajanta_ellora/</guid>
       <description>They are likely the best places you’ve never heard of. What are they? Ajanta and Ellora are two huge cave complexes carved out of the rock of the Deccan Plateau in India. They are both UNESCO world heritage sites filled with Buddhist, Hindu, and Jain temples, sculptures, and paintings that are over 2000 years old. As an archaeological site, they are up there with the Pyramids of Giza, Ankgor Wat, and the Roman Colosseum.</description>
+    </item>
+    
+    <item>
+      <title>Car Seat Placement Analysis</title>
+      <link>https://resdntalien.github.io/blog/car_seat/</link>
+      <pubDate>Tue, 14 Oct 2014 21:09:07 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/blog/car_seat/</guid>
+      <description>So during some downtime during paternity leave, I decided to really research where we should put my daughter’s car seat. After two hours of research and a small Monte Carlo simulation, this post is what I have to show for myself.
+The key stat I found in my research is that putting the car seat in the middle can reduce the likelihood of fatality by 43% as compared to putting the car seat on the side [1].</description>
     </item>
     
     <item>

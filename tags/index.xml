@@ -6,19 +6,10 @@
     <description>Recent content in Tags on Alien&#39;s Den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jan 2020 21:09:07 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2020 21:47:33 -0800</lastBuildDate>
     
 	<atom:link href="https://resdntalien.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>parenting</title>
-      <link>https://resdntalien.github.io/tags/parenting/</link>
-      <pubDate>Tue, 07 Jan 2020 21:09:07 -0800</pubDate>
-      
-      <guid>https://resdntalien.github.io/tags/parenting/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>hugo</title>
@@ -44,6 +35,15 @@
       <pubDate>Thu, 25 Apr 2019 20:29:42 -0800</pubDate>
       
       <guid>https://resdntalien.github.io/tags/travel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>parenting</title>
+      <link>https://resdntalien.github.io/tags/parenting/</link>
+      <pubDate>Tue, 14 Oct 2014 21:09:07 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/tags/parenting/</guid>
       <description></description>
     </item>
     
