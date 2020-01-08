@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Sourav Dey ">
+<meta name="description" content="So during some downtime during paternity leave, I decided to really research where we should put my daughter’s car seat. After two hours of research and a small Monte Carlo simulation, this post is what I have to show for myself.
+The key stat I found in my research is that putting the car seat in the middle can reduce the likelihood of fatality by 43% as compared to putting the car seat on the side [1]." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://resdntalien.github.io/blog/car_seat/" />
+
+
+    <title>
+        
+            Car Seat Placement Analysis :: Alien&#39;s Den  — random musings
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css">
+
+
+
+
+<meta itemprop="name" content="Car Seat Placement Analysis">
+<meta itemprop="description" content="So during some downtime during paternity leave, I decided to really research where we should put my daughter’s car seat. After two hours of research and a small Monte Carlo simulation, this post is what I have to show for myself.
+The key stat I found in my research is that putting the car seat in the middle can reduce the likelihood of fatality by 43% as compared to putting the car seat on the side [1].">
+<meta itemprop="datePublished" content="2020-01-07T21:09:07-08:00" />
+<meta itemprop="dateModified" content="2020-01-07T21:09:07-08:00" />
+<meta itemprop="wordCount" content="637">
+<meta itemprop="image" content="https://resdntalien.github.io"/>
+
+
+
+<meta itemprop="keywords" content="parenting," /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://resdntalien.github.io"/>
+
+<meta name="twitter:title" content="Car Seat Placement Analysis"/>
+<meta name="twitter:description" content="So during some downtime during paternity leave, I decided to really research where we should put my daughter’s car seat. After two hours of research and a small Monte Carlo simulation, this post is what I have to show for myself.
+The key stat I found in my research is that putting the car seat in the middle can reduce the likelihood of fatality by 43% as compared to putting the car seat on the side [1]."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2020-01-07 21:09:07 -0800 PST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home/</span>
+            <span class="logo__cursor" style="background-color:#7c4dff"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://resdntalien.github.io/about/">About</a></li><li><a href="https://resdntalien.github.io/blog/">Blog</a></li><li><a href="https://resdntalien.github.io/photos/">Photos</a></li><li><a href="https://resdntalien.github.io/travel/">Travel</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://resdntalien.github.io/blog/car_seat/">Car Seat Placement Analysis</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>So during some downtime during paternity leave, I decided to really research where we should put my daughter’s car seat. After two hours of research and a small Monte Carlo simulation, this post is what I have to show for myself.</p>
+<p>The key stat I found in my research is that putting the car seat in the middle can reduce the likelihood of fatality by 43% as compared to putting the car seat on the side [1]. That’s pretty significant, but lets look at that in context.</p>
+<p>According to the DOT there is 1.1 fatal accidents per 100M vehicle miles driven [2]. Let’s say conservatively that 50% of those are side impact collisions.</p>
+<p>Let me put that into my life — we typically drive my daughter about 75 miles per week to and from day care plus one longer trip during the weekend. Lets say she will be in the infant car seat (which we have to physically lift an put her into) for about 2 years. We will have driven ~7,800 miles with her in the car. Assuming that each mile driven is independent, I summed the binomial distribution (N=7,800, p = .55/100M) for k&gt;0 to find the probability of a fatal side impact collision during my daughter’s infant car seat days to be:</p>
+<p><span class="math display">\[ p ~= 3.5 * 10^-5 \]</span></p>
+<p>[For those who care, this is where I got lazy and just did a Monte Carlo simulation rather than evaluate the binomial CDF which uses a regularized incomplete beta function. Apparently that’s where I draw the line for nerdiness on a post.]</p>
+<p>Anyways…putting her in the middle reduces this by 43%. Figure 1 shows these two probabilities side by side on a graph. Note the y-axis here — I’ve zoomed WAY in to show the small numbers. Figure 2 shows the same plot zoomed to the full 0 to 1 probability range. Neither probability even registers as a single pixel on this image.</p>
+
+    <figure class="center" >
+        <img src="/car_fatality_1.png"  alt="Car Fatality Rate"   style="border-radius: 8px;"  />
+
+        
+            <figcaption class="center" >Figure 1: Car Fatality Rate</figcaption>
+        
+    </figure>
+
+
+
+    <figure class="center" >
+        <img src="/car_fatality_2.png"  alt="Car Fatality Rate"   style="border-radius: 8px;"  />
+
+        
+            <figcaption class="center" >Figure 2: Car Fatality Rate Zoomed Out</figcaption>
+        
+    </figure>
+
+
+<p>All else being equal I would obviously put my daughter in the center of the back seat and get that extra 43% of protection. But the problem is that all else is NOT equal. Let me now draw your attention to Figure 3. It shows the probability of my back giving out while putting my daughter into her car seat.</p>
+
+    <figure class="center" >
+        <img src="/car_back_1.png"  alt="Car Back Plot"   style="border-radius: 8px;"  />
+
+        
+            <figcaption class="center" >Figure 3: Probability of Throwing out Back</figcaption>
+        
+    </figure>
+
+
+<p>For the side position, I can just kind of put her onto my quads and click her infant carrier into place. There is some back trauma but a withstand-able amount. I put the odds of throwing out my back at 25%.</p>
+<p>For the middle position I have (a) slide her in (b) lift her while by body is twisted in a strange position and then (c) awkwardly jiggle the infant carrier around until it f**ing clicks into place. I will, with 100% certainty, throw out my back doing that everyday. And I don’t know about you, but I like to have the ability to use my back to nice things like sitting, standing, walking, driving, etc. I’m fairly certain my daughter also likes it better when I’m not an invalid laying on the floor writhing in pain.</p>
+<p>This is the dilemma I face. The only other option is to get rid of my fuel-efficient, compact car and get a gigantic, gas-guzzling SUV that has an easily accessible middle seat. Now I get why parents drive SUVs — it’s to protect their backs. Unfortunately driving an SUV has it’s own drawbacks of:</p>
+<p>gas guzzler —&gt; more reliance on Middle Eastern oil —&gt; money to shady Saudi sheiks —&gt; ISIS</p>
+<p>And I don’t want to support ISIS. So for now, my daughter sits on the side. She seems pretty happy about it.</p>
+<h2 id="references">References</h2>
+<ol type="1">
+<li><a href="http://www.webmd.com/children/news/20080507/safest-spot-for-babys-car-seat">http://www.webmd.com/children/news/20080507/safest-spot-for-babys-car-seat</a></li>
+<li><a href="http://en.wikipedia.org/wiki/List_of_motor_vehicle_deaths_in_U.S._by_year">http://en.wikipedia.org/wiki/List_of_motor_vehicle_deaths_in_U.S._by_year</a></li>
+</ol>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://resdntalien.github.io/tags/parenting">parenting</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020
+            
+                <a href="https://resdntalien.github.io">Sourav Dey</a>
+            
+            </span>
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.2d5469329143160ae2456a69c3c76dc2d0a3b212b46afe291a51bd68650ed6f8697e001dab54f1c272c77ce08092a8c55e5bb4314e0ee334aab4b927ec896638.js" integrity="sha512-LVRpMpFDFgriRWppw8dtwtCjshK0av4pGlG9aGUO1vhpfgAdq1TxwnLHfOCAkqjFXlu0MU4O4zSqtLkn7IlmOA=="></script>
+
+
+
+    </body>
+</html>
