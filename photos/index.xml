@@ -6,10 +6,28 @@
     <description>Recent content in Photos on Alien&#39;s Den</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Dec 2019 21:22:25 -0800</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jan 2020 23:21:48 -0800</lastBuildDate>
     
 	<atom:link href="https://resdntalien.github.io/photos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Milky Way Astro Photography</title>
+      <link>https://resdntalien.github.io/photos/astro/</link>
+      <pubDate>Thu, 09 Jan 2020 23:21:48 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/photos/astro/</guid>
+      <description>Seeing the Milky Way, especially the core of the galaxy, cutting across sky is a spiritual experience. I sucks that light pollution from civiliation has made it so that we can&#39;t see the night sky in its full glory usually. Most of the shots below were taken on trips to somewhere remote with super dark skies. Usually this is on top of a mountain somewhere or in the middle of the desert.</description>
+    </item>
+    
+    <item>
+      <title>Solar Eclipse Time Lapses</title>
+      <link>https://resdntalien.github.io/photos/eclipse/</link>
+      <pubDate>Thu, 09 Jan 2020 23:21:48 -0800</pubDate>
+      
+      <guid>https://resdntalien.github.io/photos/eclipse/</guid>
+      <description>I&#39;ve been obsessed with solar eclipses since I was a kid. I&#39;ve made a lo-fi rig by cutting up one of those Mylar solar eclipse glasses and taping it to the front of my telephoto SLR lens. It takes some test shots to get the exposure right, but once you do you can get a good shot of the solar disc being covered. Then I take a shot every few minutes and stitch it together in post.</description>
+    </item>
     
     <item>
       <title>Nature Meditations</title>
